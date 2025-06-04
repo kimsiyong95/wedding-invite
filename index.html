@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/lightSlider.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="css/location.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
@@ -241,13 +242,69 @@
       </ul>
     </section>
 
-    <section class="location">
-      <h2>오시는 길</h2>
-      <p>충청남도 천안시 동남구 다가말2길 104<br>더포레웨딩홀</p>
-      <img src="images/map.jpg" alt="지도 이미지">
-    </section>
+       <section class="location-section">
+           <div class="location-title">
+               <img src="images/location.png" alt="location">
+           </div>
+           <div class="map-area">
+               <div class="head">
+                   <div class="tit">더포레웨딩홀</div>
+                   <div class="txt">
+                       <p>충남 천안시 동남구 다가말2길 104</p>
+                       <p>Tel. 041-574-5000</p>
+                   </div>
+                   <a href="tel:0415745000" class="tel">전화걸기</a>
+               </div>
+               <div id="map_canvas" class="map">
+                   <a href="https://map.kakao.com/?q=천안 더포레웨딩홀" target="_blank">
+                       <img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/7c20f5f0aea7181adb52981cf60c6c121103583fe62e2e3136f660d127ea9c5c" width="100%" height="100%">
+                   </a>
+               </div>
+               <div class="link">
+                   <ul>
+                       <li><a href="https://tmap.co.kr" class="tmap" target="_blank">티맵</a></li>
+                       <li><a href="https://kakaonavi.kakao.com" class="kakaonavi" target="_blank">카카오내비</a></li>
+                       <li><a href="https://map.naver.com" class="navermap" target="_blank">네이버지도</a></li>
+                       <li><a href="https://map.kakao.com" class="kakaomap" target="_blank">카카오맵</a></li>
+                   </ul>
+               </div>
+           </div>
+           <div class="info">
+               <div class="contain">
+                   <dl>
+                       <dt>지하철안내</dt>
+                       <dd>~~~</dd>
+                   </dl>
+                   <dl>
+                       <dt>버스안내</dt>
+                       <dd>간선버스 : ~~</dd>
+                       <dd>지선버스 : ~~</dd>
+                       <dd>마을버스 : ~~</dd>
+                   </dl>
+                   <dl>
+                       <dt>주차안내</dt>
+                       <dd>~~~~~</dd>
+                   </dl>
+               </div>
+           </div>
+           <div class="info">
+               <div class="contain">
+                   <dl>
+                       <dt>전세버스안내</dt>
+                       <dd>~~~</dd>
+                   </dl>
+                   <dl>
+                       <dt>기타안내</dt>
+                       <dd>~~~~</dd>
+                   </dl>
+               </div>
+           </div>
+       </section>
 
-    <section class="account">
+
+
+
+       <section class="account">
       <h2>축의금 계좌</h2>
       <p>신랑측: 국민은행 000-123-456789 (예금주: 김시용)</p>
       <p>신부측: 농협 000-123-456789 (예금주: 최다희)</p>
