@@ -1,0 +1,13 @@
+
+.lSSlideOuter {
+  overflow: hidden;
+}
+.lSSlideWrapper {
+  max-width: 100%;
+  margin: auto;
+}
+.lightSlider li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 10px;
+}
