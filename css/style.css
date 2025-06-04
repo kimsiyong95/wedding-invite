@@ -10,7 +10,7 @@ body {
   color: #333;
 }
 
-#wrap {
+#wrap .card-bg{
   max-width: 720px;
   margin: 0 auto;
   padding: 0;
