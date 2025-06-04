@@ -119,3 +119,43 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+
+.visual.vertical-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.vertical-item.tit p {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin: 0;
+  line-height: 1.2;
+  font-family: 'Kopub Batang', serif;
+}
+
+.vertical-item.info .p1 {
+  margin: 20px 0 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.vertical-item.info .p2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vs-span.bul {
+  margin: 0 5px;
+}
+
+.vertical-item.photo img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
+}
