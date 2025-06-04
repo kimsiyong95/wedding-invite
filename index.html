@@ -4,27 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <title>김시용 ♥ 최다희 모바일 청첩장</title>
-  <base href="/wedding-invite/" />
+  <base href="/wedding-invite/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/lightSlider.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/lightSlider.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- VISUAL -->
+  <div id="wrap">
     <section class="visual">
-      <h1 class="title">김시용 ♥ 최다희</h1>
+      <div class="img-area"><img src="images/main_photo.jpg" alt="대표 이미지"></div>
       <p class="date">2026년 12월 12일 토요일 오후 2시</p>
-      <img src="images/main_photo.jpg" alt="신랑신부 이미지">
+      <h1 class="names">김시용 ♥ 최다희</h1>
     </section>
 
-    <!-- GREETING -->
     <section class="greeting">
-      <p>
+      <p class="message">
         서로가 마주보며 다져온 사랑을<br>
         이제 함께 한 곳을 바라보며<br>
         걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br>
@@ -33,61 +31,43 @@
       </p>
     </section>
 
-    <!-- PARENTS -->
     <section class="families">
       <p>신랑 부모: 김OO · 이OO</p>
       <p>신부 부모: 최OO · 박OO</p>
     </section>
 
-    <!-- CALENDAR -->
     <section class="calendar-section">
       <div class="calendar-wrap">
-        <img src="images/calendar.jpg" alt="Calendar Image">
-        <div class="day-time">
-          <span class="day">Sat.</span> <span class="time">PM 2:00</span>
-        </div>
+        <img src="images/calendar.jpg" alt="캘린더 이미지">
+        <div class="day-time"><span class="day">Sat.</span><span class="time">PM 2:00</span></div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact">
-      <div class="bridegroom">
-        <p>신랑 김시용</p>
-        <button>연락하기</button>
-        <button>문자보내기</button>
-      </div>
-      <div class="bride">
-        <p>신부 최다희</p>
-        <button>연락하기</button>
-        <button>문자보내기</button>
-      </div>
+      <div><p>신랑 김시용</p><button>연락하기</button><button>문자보내기</button></div>
+      <div><p>신부 최다희</p><button>연락하기</button><button>문자보내기</button></div>
     </section>
 
-    <!-- GALLERY -->
     <section class="gallery">
-      <h2>GALLERY</h2>
-      <div class="images">
-        <img src="images/gallery_01.jpg" alt="갤러리1">
-        <img src="images/gallery_02.jpg" alt="갤러리2">
-        <img src="images/gallery_03.jpg" alt="갤러리3">
-      </div>
+      <ul id="imageGallery" class="lightSlider">
+        <li><img src="images/gallery_01.jpg" alt="갤러리1"></li>
+        <li><img src="images/gallery_02.jpg" alt="갤러리2"></li>
+        <li><img src="images/gallery_03.jpg" alt="갤러리3"></li>
+      </ul>
     </section>
 
-    <!-- LOCATION -->
     <section class="location">
       <h2>오시는 길</h2>
       <p>충청남도 천안시 동남구 다가말2길 104<br>더포레웨딩홀</p>
       <img src="images/map.jpg" alt="지도 이미지">
     </section>
 
-    <!-- ACCOUNT -->
     <section class="account">
       <h2>축의금 계좌</h2>
       <p>신랑측: 국민은행 000-123-456789 (예금주: 김시용)</p>
       <p>신부측: 농협 000-123-456789 (예금주: 최다희)</p>
     </section>
 
-    <!-- RSVP -->
     <section class="rsvp">
       <h2>참석 여부 전달</h2>
       <form>
@@ -103,7 +83,6 @@
         <button type="submit">참석 의사 전달</button>
       </form>
     </section>
-
   </div>
 
   <script src="js/jquery-1.9.1.min.js"></script>
