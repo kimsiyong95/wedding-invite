@@ -1,0 +1,41 @@
+.calendar-section {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.calendar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#calendar {
+  margin: 0 auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.85rem;
+  background-color: #fffaf5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.day-time {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ba8f58;
+}
+
+.day-time .day {
+  margin-right: 5px;
+  text-transform: capitalize;
+}
+
+
+.ui-datepicker .ui-state-active {
+  background: #ba8f58 !important;
+  color: #fff !important;
+  border-radius: 50%;
+}
+
+

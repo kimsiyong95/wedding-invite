@@ -8,9 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/lightSlider.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/calendar.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
    <div id="wrap" class="card-bg">
@@ -18,7 +21,7 @@
        <div class="top">
            <div class="visual-block title-text">
                <p class="letter">약</p>
-               <p class="letter">속</p>
+               <p class="letter2">속</p>
            </div>
            <div class="visual-block info-text">
                <p class="wedding-date">2026년 12월 12일 토요일 오후 2시</p>
@@ -49,21 +52,115 @@
     </section>
 
     <section class="families">
-      <p>신랑 부모: 김OO · 이OO</p>
-      <p>신부 부모: 최OO · 박OO</p>
+        <div class="family-info">
+            <div class="family-block">
+                <div class="family-row">
+                    <p class="family-parents">
+                        <span class="family-name">김병빈</span>
+                        <span class="vs-dot">·</span>
+                        <span class="family-name">장미라</span>
+                    </p>
+                    <p class="family-desc">의</p>
+                    <p class="family-role">장남</p>
+                    <p class="family-child">시용</p>
+                </div>
+                <div class="family-row">
+                    <p class="family-parents">
+                        <span class="family-name">최종남</span>
+                        <span class="vs-dot">·</span>
+                        <span class="family-name">지미아</span>
+                    </p>
+                    <p class="family-desc">의</p>
+                    <p class="family-role">장녀</p>
+                    <p class="family-child">다희</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="calendar-section">
-      <div class="calendar-wrap">
-        <img src="images/calendar.jpg" alt="캘린더 이미지">
-        <div class="day-time"><span class="day">Sat.</span><span class="time">PM 2:00</span></div>
-      </div>
-    </section>
+   <section class="banner-section">
+       <div class="banner-div">
+           <p class="txt">소 중 한 &nbsp; 당 신 을 &nbsp; 초 대 합 니 다</p>
+       </div>
+   </section>
 
-    <section class="contact">
-      <div><p>신랑 김시용</p><button>연락하기</button><button>문자보내기</button></div>
-      <div><p>신부 최다희</p><button>연락하기</button><button>문자보내기</button></div>
-    </section>
+   <section class="contact">
+       <div class="contact-row groom">
+           <p>신랑 김시용</p>
+           <div class="contact-buttons">
+               <a href="tel:01012345678" class="call"><i class="fa-solid fa-phone"></i></a>
+               <a href="sms:01012345678" class="sms"><i class="fa-regular fa-comment"></i></a>
+           </div>
+       </div>
+       <div class="contact-row bride">
+           <p>신부 최다희</p>
+           <div class="contact-buttons">
+               <a href="tel:01087654321" class="call"><i class="fa-solid fa-phone"></i></a>
+               <a href="sms:01087654321" class="sms"><i class="fa-regular fa-comment"></i></a>
+           </div>
+       </div>
+   </section>
+
+   <section class="honju-contact">
+       <h2 class="honju-title">혼주에게 연락하기</h2>
+       <div class="honju-columns">
+
+           <!-- 신랑 측 -->
+           <div class="honju-column groom-side">
+               <h3 class="honju-side-title">신랑 측 혼주</h3>
+
+               <div class="honju-box">
+                   <p class="honju-name"><span>아버지</span> <strong>김병빈</strong></p>
+                   <div class="honju-buttons">
+                       <a href="tel://010-0000-0000" class="call"><i class="fa fa-phone"></i></a>
+                       <a href="sms://010-0000-0000" class="sms"><i class="fa fa-envelope"></i></a>
+                   </div>
+               </div>
+
+               <div class="honju-box">
+                   <p class="honju-name"><span>어머니</span> <strong>장미라</strong></p>
+                   <div class="honju-buttons">
+                       <a href="tel://010-0000-0000" class="call"><i class="fa fa-phone"></i></a>
+                       <a href="sms://010-0000-0000" class="sms"><i class="fa fa-envelope"></i></a>
+                   </div>
+               </div>
+           </div>
+
+           <!-- 신부 측 -->
+           <div class="honju-column bride-side">
+               <h3 class="honju-side-title">신부 측 혼주</h3>
+
+               <div class="honju-box">
+                   <p class="honju-name"><span>아버지</span> <strong>최종남</strong></p>
+                   <div class="honju-buttons">
+                       <a href="tel://010-0000-0000" class="call"><i class="fa fa-phone"></i></a>
+                       <a href="sms://010-0000-0000" class="sms"><i class="fa fa-envelope"></i></a>
+                   </div>
+               </div>
+
+               <div class="honju-box">
+                   <p class="honju-name"><span>어머니</span> <strong>지미아</strong></p>
+                   <div class="honju-buttons">
+                       <a href="tel://010-0000-0000" class="call"><i class="fa fa-phone"></i></a>
+                       <a href="sms://010-0000-0000" class="sms"><i class="fa fa-envelope"></i></a>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+   </section>
+
+   <section class="calendar-section">
+       <div class="calendar-wrap">
+           <div id="calendar"></div>
+           <div class="day-time">
+               <span class="day">Sat.</span>
+               <span class="time">PM 2:00</span>
+           </div>
+       </div>
+   </section>
+
+
 
     <section class="gallery">
       <ul id="imageGallery" class="lightSlider">
@@ -85,25 +182,39 @@
       <p>신부측: 농협 000-123-456789 (예금주: 최다희)</p>
     </section>
 
-    <section class="rsvp">
-      <h2>참석 여부 전달</h2>
-      <form>
-        <input type="text" placeholder="성함" required>
-        <input type="text" placeholder="연락처" required>
-        <input type="number" placeholder="동행 인원" required>
-        <select required>
-          <option value="">식사 여부 선택</option>
-          <option>식사 가능</option>
-          <option>식사 불가 (답례품 수령)</option>
-        </select>
-        <textarea placeholder="전달사항"></textarea>
-        <button type="submit">참석 의사 전달</button>
-      </form>
-    </section>
+<!--    <section class="rsvp">-->
+<!--      <h2>참석 여부 전달</h2>-->
+<!--      <form>-->
+<!--        <input type="text" placeholder="성함" required>-->
+<!--        <input type="text" placeholder="연락처" required>-->
+<!--        <input type="number" placeholder="동행 인원" required>-->
+<!--        <select required>-->
+<!--          <option value="">식사 여부 선택</option>-->
+<!--          <option>식사 가능</option>-->
+<!--          <option>식사 불가 (답례품 수령)</option>-->
+<!--        </select>-->
+<!--        <textarea placeholder="전달사항"></textarea>-->
+<!--        <button type="submit">참석 의사 전달</button>-->
+<!--      </form>-->
+<!--    </section>-->
   </div>
-
-  <script src="js/jquery-1.9.1.min.js"></script>
-  <script src="js/lightSlider.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/main.js"></script>
+
+   <script>
+       $(function() {
+           $("#calendar").datepicker({
+               inline: true,
+               defaultDate: new Date(2026, 11, 12), // 2026년 12월 12일
+               beforeShowDay: function(date) {
+                   var highlight = (date.getDate() === 12 && date.getMonth() === 11 && date.getFullYear() === 2026);
+                   return [true, highlight ? "ui-state-active" : ""];
+               },
+               showOtherMonths: true,
+               selectOtherMonths: true
+           });
+       });
+   </script>
 </body>
 </html>

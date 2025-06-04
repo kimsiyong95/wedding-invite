@@ -43,7 +43,12 @@ body {
   margin: 10px 0;
 }
 
-.greeting, .families, .calendar-section, .contact, .gallery, .location, .account, .rsvp {
+.families {
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.greeting, .calendar-section, .gallery, .location, .account, .rsvp {
   padding: 30px 20px;
   text-align: center;
 }
@@ -69,19 +74,47 @@ body {
   font-weight: 500;
 }
 
+
+.contact {
+  padding: 80px 20px;
+}
+
 .contact div, .account p {
   margin-bottom: 15px;
 }
 
-.contact button {
-  margin: 5px;
-  padding: 8px 16px;
-  border: none;
-  background-color: #f5a623;
+.contact-row {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.contact-buttons a {
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 50%;
   color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.groom .call {
+  background-color: #87ceeb; /* 하늘색 */
+}
+
+.groom .sms {
+  background-color: #999;     /* 회색 */
+}
+
+.bride .call {
+  background-color: #ffb6c1; /* 핑크색 */
+}
+
+.bride .sms {
+  background-color: #999;     /* 회색 */
 }
 
 .gallery img {
@@ -175,6 +208,9 @@ body {
   margin-top: 20px;
 }
 
+.photo-area {
+  margin-top: 40px;
+}
 
 .wedding-date::after {
   content: '';
@@ -199,6 +235,14 @@ body {
   font-size: 2rem; /* 필요시 크기 조정 */
   font-weight: bold;
 }
+
+.visual-block.title-text .letter2 {
+  display: inline-block;
+  margin: 30px 6px; /* ← 좌우 간격 조정 */
+  font-size: 2rem; /* 필요시 크기 조정 */
+  font-weight: bold;
+}
+
 
 .invitation-title {
   text-align: center;
@@ -241,6 +285,171 @@ body {
   top: calc(100% + 10px);
   margin-left: -0.5px;
   width: 1px;
-  height: 30px;
+  height: 45px;
   background: #d4bda2;
+}
+
+
+
+.family-info {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Kopub Batang', 'Noto Sans KR', sans-serif;
+  color: #333;
+}
+
+.family-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.family-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.family-parents {
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.family-name, .family-dot {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 1.3rem;
+}
+
+.family-dot::before {
+  content: '·';
+}
+
+.family-desc {
+  font-size: 1rem;
+  margin: 0 5px;
+}
+
+.family-role {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 5px;
+}
+
+.family-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+
+.banner-section {
+  background: url('/wedding-invite/images/banner.jpg') center center no-repeat;
+  background-size: 100% auto;
+  margin-top: 50px;
+}
+
+
+.banner-div {
+  display: table;
+  width: 100%;
+}
+
+
+.banner-section .txt {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 10.250rem;
+  text-align: center;
+  font-size: 0.995rem;
+  font-weight: 200;
+  color: #fff;
+  letter-spacing: 0.4em;
+}
+
+
+.honju-contact {
+  padding: 0px 25px;
+  text-align: center;
+  position: relative;
+}
+
+
+.honju-title {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: #f0e8e0;
+  color: #ba8f58;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 4.5rem;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 80px;  /* 아래 여백만 따로 */
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.honju-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.honju-column {
+  width: 48%;
+}
+
+.honju-side-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.honju-box {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.honju-name {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.honju-name span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.honju-buttons a {
+  margin: 0 6px;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: white;
+  display: inline-block;
+}
+
+.groom-side .call { background-color: #87ceeb; }
+.bride-side .call { background-color: #ffb6c1; }
+
+.sms {
+  background-color: #999;
 }
