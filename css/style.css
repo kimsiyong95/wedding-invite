@@ -5,8 +5,8 @@
 
 body {
   margin: 0;
+  background-color: #fff; /* ÀüÃ¼´Â ±ò²ûÇÑ Èò»ö ¹è°æ */
   font-family: 'Kopub Batang', 'Noto Sans KR', 'Nanum Gothic', sans-serif;
-  background-color: #fff;
   color: #333;
 }
 
@@ -14,6 +14,12 @@ body {
   max-width: 720px;
   margin: 0 auto;
   padding: 0;
+  background: url('/images/bg.jpg') repeat-y center top;
+  background-size: 100% auto;
+  background-color: #fefaf5;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .visual {
