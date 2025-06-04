@@ -148,17 +148,25 @@ body {
 }
 
 .info-text .wedding-date {
-  margin: 20px 0 10px;
-  font-size: 16px;
-  color: #555;
+  position: relative;
+  margin-bottom: 0.69rem;
+  padding-bottom: 0.69rem;
+  font-size: 0.748rem;
+  font-weight: 298;
+  line-height: 1.11;
+  color: #483a33;
 }
 
 .info-text .wedding-names {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 0.749rem;         /* 작고 단정한 크기 */
+  font-weight: 399;           /* 기본 굵기 */
+  line-height: 1.124rem;      /* 행간 여유 */
+  color: #333;                /* 기본 글자색 */
+  margin-top: 10px;
 }
 
-.vs-dot {
+.vs-name, .vs-dot {
+  display: inline-block;
   margin: 0 5px;
 }
 
@@ -172,8 +180,11 @@ body {
 .wedding-date::after {
   content: '';
   display: block;
-  width: 40px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -60px;     /* 7.5rem = 120px → 반으로 나눈 값 */
+  width: 120px;            /* 7.5rem */
   height: 1px;
-  background: #ccc;
-  margin: 20px auto;
+  background: #d4bda2;
 }
