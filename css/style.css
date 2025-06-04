@@ -130,13 +130,21 @@ body {
   text-align: center;
 }
 
+.visual-block.title-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* 시-작 사이 간격 */
+  margin-bottom: 20px;
+}
+
 .visual-block.title-text p {
-  font-size: 28px;
+  font-size: 36px;         /* 글자 크기 키움 */
   font-weight: bold;
-  letter-spacing: 4px;
+  letter-spacing: 6px;     /* 자간 넓게 */
   margin: 0;
-  line-height: 1.2;
   font-family: 'Kopub Batang', serif;
+  color: #333;
 }
 
 .info-text .wedding-date {
@@ -158,4 +166,14 @@ body {
   width: 100%;
   border-radius: 8px;
   margin-top: 20px;
+}
+
+
+.wedding-date::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #ccc;
+  margin: 20px auto;
 }
