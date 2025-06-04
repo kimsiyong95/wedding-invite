@@ -233,7 +233,7 @@ body {
   margin-bottom: 30px;
 }
 /* ºº∑Œ¡Ÿ */
-.greeting-block::before {
+.greeting-block::after {
   content: '';
   display: block;
   position: absolute;
