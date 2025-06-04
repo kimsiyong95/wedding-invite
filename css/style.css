@@ -126,7 +126,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
   text-align: center;
 }
 
@@ -191,4 +190,20 @@ body {
 
 .top {
   padding: 5.250rem 0 0;
+}
+
+
+.visual-block.title-text .letter {
+  display: inline-block;
+  margin: 13px 6px; /* ← 좌우 간격 조정 */
+  font-size: 2rem; /* 필요시 크기 조정 */
+  font-weight: bold;
+}
+
+.invitation {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.688rem;
+  line-height: 0;
+  text-align: center;
 }
