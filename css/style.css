@@ -114,3 +114,10 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.bg {
+  background: url('/images/bg.jpg') repeat-y center top;
+  background-size: 100% auto;
+  background-color: #fefaf5;
+}
