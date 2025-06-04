@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background-color: #fff; /* ÀüÃ¼´Â ±ò²ûÇÑ Èò»ö ¹è°æ */
+  background-color: #fff; /* ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
   font-family: 'Kopub Batang', 'Noto Sans KR', 'Nanum Gothic', sans-serif;
   color: #333;
 }
@@ -85,7 +85,7 @@ body {
 
 .contact-row {
   display: flex;
-  justify-content: center; /* °¡¿îµ¥ Á¤·Ä */
+  justify-content: center; /* ï¿½ï¿½ï¿½îµ¥ ï¿½ï¿½ï¿½ï¿½ */
   align-items: center;
   margin-bottom: 20px;
   font-size: 1rem;
@@ -102,19 +102,19 @@ body {
 }
 
 .groom .call {
-  background-color: #87ceeb; /* ÇÏ´Ã»ö */
+  background-color: #87ceeb; /* ï¿½Ï´Ã»ï¿½ */
 }
 
 .groom .sms {
-  background-color: #999;     /* È¸»ö */
+  background-color: #999;     /* È¸ï¿½ï¿½ */
 }
 
 .bride .call {
-  background-color: #ffb6c1; /* ÇÎÅ©»ö */
+  background-color: #ffb6c1; /* ï¿½ï¿½Å©ï¿½ï¿½ */
 }
 
 .bride .sms {
-  background-color: #999;     /* È¸»ö */
+  background-color: #999;     /* È¸ï¿½ï¿½ */
 }
 
 .gallery img {
@@ -166,14 +166,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* ½Ã-ÀÛ »çÀÌ °£°İ */
+  gap: 10px; /* ï¿½ï¿½-ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
   margin-bottom: 20px;
 }
 
 .visual-block.title-text p {
-  font-size: 36px;         /* ±ÛÀÚ Å©±â Å°¿ò */
+  font-size: 36px;         /* ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ Å°ï¿½ï¿½ */
   font-weight: bold;
-  letter-spacing: 6px;     /* ÀÚ°£ ³Ğ°Ô */
+  letter-spacing: 6px;     /* ï¿½Ú°ï¿½ ï¿½Ğ°ï¿½ */
   margin: 0;
   font-family: 'Kopub Batang', serif;
   color: #333;
@@ -190,10 +190,10 @@ body {
 }
 
 .info-text .wedding-names {
-  font-size: 1.1rem;         /* ÀÛ°í ´ÜÁ¤ÇÑ Å©±â */
-  font-weight: 399;           /* ±âº» ±½±â */
-  line-height: 1.124rem;      /* Çà°£ ¿©À¯ */
-  color: #333;                /* ±âº» ±ÛÀÚ»ö */
+  font-size: 1.1rem;         /* ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ */
+  font-weight: 399;           /* ï¿½âº» ï¿½ï¿½ï¿½ï¿½ */
+  line-height: 1.124rem;      /* ï¿½à°£ ï¿½ï¿½ï¿½ï¿½ */
+  color: #333;                /* ï¿½âº» ï¿½ï¿½ï¿½Ú»ï¿½ */
   margin-top: 10px;
 }
 
@@ -218,7 +218,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0;
-  margin-left: -60px;     /* 7.5rem = 120px ¡æ ¹İÀ¸·Î ³ª´« °ª */
+  margin-left: -60px;     /* 7.5rem = 120px ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ */
   width: 120px;            /* 7.5rem */
   height: 1px;
   background: #d4bda2;
@@ -231,15 +231,15 @@ body {
 
 .visual-block.title-text .letter {
   display: inline-block;
-  margin: 13px 6px; /* ¡ç ÁÂ¿ì °£°İ Á¶Á¤ */
-  font-size: 2rem; /* ÇÊ¿ä½Ã Å©±â Á¶Á¤ */
+  margin: 13px 6px; /* ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+  font-size: 2rem; /* ï¿½Ê¿ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
   font-weight: bold;
 }
 
 .visual-block.title-text .letter2 {
   display: inline-block;
-  margin: 30px 6px; /* ¡ç ÁÂ¿ì °£°İ Á¶Á¤ */
-  font-size: 2rem; /* ÇÊ¿ä½Ã Å©±â Á¶Á¤ */
+  margin: 30px 6px; /* ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+  font-size: 2rem; /* ï¿½Ê¿ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
   font-weight: bold;
 }
 
@@ -262,7 +262,7 @@ body {
   position: absolute;
   left: 50%;
   margin-top: -30px;
-  margin-left: -60px;  /* °¡·Î ³ÊºñÀÇ ¹İ */
+  margin-left: -60px;  /* ï¿½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ï¿½ï¿½ ï¿½ï¿½ */
   width: 120px;
   height: 1px;
   background: #d4bda2;
@@ -270,15 +270,15 @@ body {
 
 
 .invitation-title img {
-  width: 150px;      /* ¿øÇÏ´Â °¡·Î Å©±â */
-  height: auto;      /* ºñÀ² À¯Áö */
+  width: 150px;      /* ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ */
+  height: auto;      /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
   display: inline-block;
 }
 
 
 .location-title img {
-  width: 80px;      /* ¿øÇÏ´Â °¡·Î Å©±â */
-  height: auto;      /* ºñÀ² À¯Áö */
+  width: 80px;      /* ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ */
+  height: auto;      /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
   display: inline-block;
 }
 
@@ -288,7 +288,7 @@ body {
   padding-bottom: 40px;
   margin-bottom: 30px;
 }
-/* ¼¼·ÎÁÙ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .greeting-block::after {
   content: '';
   display: block;
@@ -338,7 +338,7 @@ body {
 }
 
 .family-dot::before {
-  content: '¡¤';
+  content: 'ï¿½ï¿½';
 }
 
 .family-desc {
@@ -408,7 +408,7 @@ body {
   line-height: 4.5rem;
   text-align: center;
   margin-top: -10px;
-  margin-bottom: 80px;  /* ¾Æ·¡ ¿©¹é¸¸ µû·Î */
+  margin-bottom: 80px;  /* ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½é¸¸ ï¿½ï¿½ï¿½ï¿½ */
   padding: 0;
   box-sizing: border-box;
   z-index: 1;
@@ -418,13 +418,12 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 20px;
+  flex-wrap: nowrap; /* wrapì„ ë§‰ì•„ì„œ ì˜†ìœ¼ë¡œë§Œ ë°°ì¹˜ */
+  overflow-x: auto;   /* ì‘ì•„ì§€ë©´ ê°€ë¡œ ìŠ¤í¬ë¡¤ í—ˆìš© (ì˜µì…˜) */
 }
 
-.honju-column {
-  width: 48%;
-}
+
 
 .honju-side-title {
   font-size: 1rem;
@@ -432,12 +431,21 @@ body {
   color: #666;
 }
 
+.honju-column {
+  flex: 1 1 45%;         /* ê°€ë¡œí­ì„ 45%ë¡œ ì¤„ì—¬ ì—¬ìœ  í™•ë³´ */
+  min-width: 0;          /* ëª¨ë°”ì¼ì—ì„œ ë„ˆë¬´ ì»¤ì ¸ì„œ ì¤„ë°”ê¿ˆë˜ëŠ” ê²ƒ ë°©ì§€ */
+  max-width: 100%;       /* ë¶€ëª¨ ì˜ì—­ì„ ë„˜ì§€ ì•Šë„ë¡ ì œí•œ */
+}
+
+
 .honju-box {
   background: #fafafa;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 15px;
+  margin: 0 auto 15px auto;   /* ì•„ë˜ ì—¬ë°± + ê°€ìš´ë° ì •ë ¬ */
+  max-width: 160px;           /* ê°€ë¡œ í­ ì œí•œ */
+  width: 100%;
 }
 
 .honju-name {
