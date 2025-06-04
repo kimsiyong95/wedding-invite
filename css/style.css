@@ -151,14 +151,14 @@ body {
   position: relative;
   margin-bottom: 0.69rem;
   padding-bottom: 0.69rem;
-  font-size: 0.748rem;
+  font-size: 1.1rem;
   font-weight: 298;
   line-height: 1.11;
   color: #483a33;
 }
 
 .info-text .wedding-names {
-  font-size: 0.749rem;         /* 작고 단정한 크기 */
+  font-size: 1.1rem;         /* 작고 단정한 크기 */
   font-weight: 399;           /* 기본 굵기 */
   line-height: 1.124rem;      /* 행간 여유 */
   color: #333;                /* 기본 글자색 */
@@ -187,4 +187,8 @@ body {
   width: 120px;            /* 7.5rem */
   height: 1px;
   background: #d4bda2;
+}
+
+.top {
+  padding: 5.250rem 0 0;
 }
