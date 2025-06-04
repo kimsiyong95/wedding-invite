@@ -200,10 +200,27 @@ body {
   font-weight: bold;
 }
 
-.invitation {
-  position: relative;
-  margin-bottom: 2.5rem;
-  padding-bottom: 0.688rem;
-  line-height: 0;
+.invitation-title {
   text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.invitation-title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -60px;  /* 가로 너비의 반 */
+  width: 120px;
+  height: 1px;
+  background: #d4bda2;
+}
+
+
+.invitation-title img {
+  width: 150px;      /* 원하는 가로 크기 */
+  height: auto;      /* 비율 유지 */
+  display: inline-block;
 }
