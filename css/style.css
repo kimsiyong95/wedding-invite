@@ -256,6 +256,12 @@ body {
   margin-bottom: 10px;
 }
 
+.gallery-title {
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
 .invitation-title::after {
   content: '';
   display: block;
@@ -270,15 +276,22 @@ body {
 
 
 .invitation-title img {
-  width: 150px;      /* ���ϴ� ���� ũ�� */
-  height: auto;      /* ���� ���� */
+  width: 150px;
+  height: auto;
+  display: inline-block;
+}
+
+
+.gallery-title img {
+  width: 150px;
+  height: auto;
   display: inline-block;
 }
 
 
 .location-title img {
-  width: 80px;      /* ���ϴ� ���� ũ�� */
-  height: auto;      /* ���� ���� */
+  width: 80px;
+  height: auto;
   display: inline-block;
 }
 
@@ -477,4 +490,74 @@ body {
 
 .sms {
   background-color: #999;
+}
+
+
+.gallery-section {
+  padding: 30px 20px;
+}
+
+
+.gallery-title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-top: 0px;
+  margin-left: -65px;  /* ���� �ʺ��� �� */
+  width: 120px;
+  height: 1px;
+  background: #d4bda2;
+}
+
+.gallery-section .sec-tit {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gallery-section .contain {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.type2-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+
+
+
+.type2-list li {
+  width: calc((100% - 10px) / 3); /* gap 총 10px (5px * 2) 보정 */
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+
+.type2-list .box {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.3s ease;
+}
+
+.type2-list li:hover .box {
+  transform: scale(1.05);
+}
+
+.gallery-section .ex {
+  font-size: 0.75rem;
+  color: #999;
+  text-align: center;
+  margin-top: 12px;
 }
