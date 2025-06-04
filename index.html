@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 </head>
 <body>
+    <audio id="weddingMusic" autoplay muted loop>
+        <source src="music/backmusic.mp3" type="audio/mpeg">
+    </audio>
    <div id="wrap" class="card-bg">
    <section class="main-visual">
        <div class="top">
@@ -392,7 +395,31 @@
                showOtherMonths: true,
                selectOtherMonths: true
            });
+
+
+           // 오디오 자동 재생 (muted 상태)
+           const audio = document.getElementById("weddingMusic");
+           audio.play().then(() => {
+               console.log("🎵 음소거 상태로 자동 재생 시작");
+           }).catch(err => {
+               console.warn("자동 재생 실패 (muted 상태)", err);
+           });
+
+           // 사용자가 아무 곳이나 클릭 시 unmute + 재생
+           document.addEventListener("click", function handler() {
+               audio.muted = false;
+               audio.play().then(() => {
+                   console.log("🔊 사용자 클릭으로 소리 재생");
+               }).catch(err => {
+                   console.warn("소리 재생 실패", err);
+               });
+
+               // 중복 방지
+               document.removeEventListener("click", handler);
+           });
+
        });
+
    </script>
 </body>
 </html>

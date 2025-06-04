@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a27603c9-7e42-4d97-b4aa-fcc110716713" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/music/backmusic.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/webProject/blog/wedding-invite/images/gallery",
+    "last_opened_file_path": "D:/webProject/blog/wedding-invite/music",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -43,11 +45,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\webProject\blog\wedding-invite\music" />
       <recent name="D:\webProject\blog\wedding-invite\images\gallery" />
       <recent name="D:\webProject\blog\wedding-invite\images" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
@@ -88,7 +90,7 @@
       <workItem from="1748998191904" duration="6775000" />
       <workItem from="1749005045683" duration="10000" />
       <workItem from="1749008906330" duration="14152000" />
-      <workItem from="1749027225727" duration="4972000" />
+      <workItem from="1749027225727" duration="7089000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -370,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749050915366</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="test">
+      <option name="closed" value="true" />
+      <created>1749052249700</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052249700</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
