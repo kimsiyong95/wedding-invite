@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/calendar.css">
   <link rel="stylesheet" href="css/location.css">
   <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/snow.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
@@ -408,6 +409,15 @@
 <!--    </section>-->
   </div>
 
+    <div id="introOverlay" class="intro-overlay">
+        <div class="intro-content">
+            <p class="intro-text">김시용 💌 최다희의 결혼식에 귀하를 정중히 초대합니다.</p>
+            <button id="enterBtn" class="enter-btn">입장하기</button>
+        </div>
+    </div>
+
+
+  <canvas id="snowCanvas"></canvas>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
@@ -415,6 +425,8 @@
 
    <script>
        $(function() {
+           drawSnowflakes();
+
            $("#calendar").datepicker({
                inline: true,
                defaultDate: new Date(2026, 11, 12), // 2026년 12월 12일
@@ -448,6 +460,16 @@
                document.removeEventListener("click", handler);
            });
 
+           document.getElementById("enterBtn").addEventListener("click", function () {
+               const overlay = document.getElementById("introOverlay");
+               overlay.style.opacity = "0";
+               setTimeout(() => overlay.style.display = "none", 1000);
+
+               // 음악 unmute + 재생
+               const audio = document.getElementById("weddingMusic");
+               audio.muted = false;
+               audio.play().catch(err => console.warn("음악 재생 실패:", err));
+           });
        });
    </script>
 </body>

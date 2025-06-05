@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a27603c9-7e42-4d97-b4aa-fcc110716713" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gallery/temp/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/main_photo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/snow.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
@@ -43,7 +35,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/webProject/blog/wedding-invite/images/gallery/temp",
+    "last_opened_file_path": "D:/webProject/blog/wedding-invite/css",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,9 +46,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\webProject\blog\wedding-invite\css" />
       <recent name="D:\webProject\blog\wedding-invite\images\gallery\temp" />
       <recent name="D:\webProject\blog\wedding-invite\images" />
-      <recent name="D:\webProject\blog\wedding-invite\css" />
       <recent name="D:\webProject\blog\wedding-invite\music" />
       <recent name="D:\webProject\blog\wedding-invite\images\gallery" />
     </key>
@@ -100,7 +92,7 @@
       <workItem from="1749005045683" duration="10000" />
       <workItem from="1749008906330" duration="14152000" />
       <workItem from="1749027225727" duration="7125000" />
-      <workItem from="1749088421651" duration="4965000" />
+      <workItem from="1749088421651" duration="6492000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -406,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749091264641</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="test">
+      <option name="closed" value="true" />
+      <created>1749097923434</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1749097923434</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -56,3 +56,67 @@ function copyToClipboard(element) {
         console.warn("📋 복사 실패:", err);
     });
 }
+
+// snow
+
+const canvas = document.getElementById("snowCanvas");
+const ctx = canvas.getContext("2d");
+
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+
+window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+});
+
+const snowflakes = [];
+const snowflakeCount = 80;
+const snowChars = ['❅', '❄', '✻', '✼'];
+
+for (let i = 0; i < snowflakeCount; i++) {
+    snowflakes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        char: snowChars[Math.floor(Math.random() * snowChars.length)],
+        size: Math.random() * 20 + 10, // font size
+        speedY: Math.random() * 1 + 0.5,
+        speedX: Math.random() * 0.5 - 0.25,
+        opacity: Math.random() * 0.5 + 0.5
+    });
+}
+
+function drawSnowflakes() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let flake of snowflakes) {
+        ctx.font = `${flake.size}px serif`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+        ctx.fillText(flake.char, flake.x, flake.y);
+    }
+
+    updateSnowflakes();
+    requestAnimationFrame(drawSnowflakes);
+}
+
+function updateSnowflakes() {
+    for (let flake of snowflakes) {
+        flake.y += flake.speedY;
+        flake.x += flake.speedX;
+
+        if (flake.y > height) {
+            flake.y = 0;
+            flake.x = Math.random() * width;
+            flake.char = snowChars[Math.floor(Math.random() * snowChars.length)];
+        }
+        if (flake.x > width || flake.x < 0) {
+            flake.x = Math.random() * width;
+        }
+    }
+}
+
+
