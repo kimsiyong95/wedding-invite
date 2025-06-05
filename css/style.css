@@ -642,26 +642,27 @@ body {
 .intro-overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 100vw;       /* 💡 중요: 100% → 100vw */
+  height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
   display: flex;
-  justify-content: center;  /* 가로 가운데 */
-  align-items: center;      /* 세로 가운데 */
+  justify-content: center;
+  align-items: center;
   z-index: 9999;
   text-align: center;
-  transition: opacity 1s;
-  padding: 0 20px; /* 모바일에서 텍스트 잘림 방지 */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .intro-text {
-  font-size: 1.2rem;
+  text-align: center;       /* 중앙 정렬 */
+  white-space: normal;      /* 줄바꿈 허용 */
+  word-break: keep-all;     /* 단어 기준 줄바꿈 (한글엔 권장) */
   line-height: 1.6;
-  text-align: center;
-  word-break: keep-all;  /* 단어 중간에서 안 끊기게 */
-  white-space: normal;   /* 줄바꿈 허용 */
-  padding: 0 16px;        /* 모바일에서 좌우 여백 확보 */
-  max-width: 90vw;
+  font-size: 1.1rem;
+  padding: 0 16px;          /* 모바일에서 양옆 여백 */
+  box-sizing: border-box;
 }
 
 .enter-btn {
@@ -683,6 +684,18 @@ body {
 .intro-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px; /* 버튼과 텍스트 간격 */
+  justify-content: center;
+  align-items: center; /* 🔥 이것이 있어야 자식들이 가운데로 정렬됨 */
+  text-align: center;
+  height: 100vh;
+}
+
+.intro-text {
+  font-size: clamp(1rem, 4vw, 1.5rem); /* 화면 너비에 따라 유동 크기 */
+}
+
+.intro-text .icon {
+  display: inline-block;
+  width: 1em; /* 균일 폭 */
+  text-align: center;
 }
