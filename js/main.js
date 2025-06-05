@@ -41,4 +41,18 @@ function showToast() {
     }, 2500);
 }
 
+function copyToClipboard(element) {
+    const text = element.getAttribute('data-copy');
+    if (!text) return;
 
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 1500);
+    }).catch(err => {
+        console.warn("📋 복사 실패:", err);
+    });
+}
