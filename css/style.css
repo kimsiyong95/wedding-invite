@@ -656,9 +656,12 @@ body {
 
 .intro-text {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  line-height: 1.6;
   text-align: center;
-  line-height: 1.5;
+  word-break: keep-all;  /* 단어 중간에서 안 끊기게 */
+  white-space: normal;   /* 줄바꿈 허용 */
+  padding: 0 16px;        /* 모바일에서 좌우 여백 확보 */
+  max-width: 90vw;
 }
 
 .enter-btn {

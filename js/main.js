@@ -76,7 +76,7 @@ window.addEventListener('resize', () => {
 
 const snowflakes = [];
 const snowflakeCount = 80;
-const snowChars = ['❅', '❄', '✻', '✼'];
+const snowChars = ['*', '✽', '✾', '❆'];
 
 for (let i = 0; i < snowflakeCount; i++) {
     snowflakes.push({
