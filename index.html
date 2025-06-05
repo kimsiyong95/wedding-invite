@@ -3,13 +3,14 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-<!--  <title>김시용 ♥ 최다희 모바일 청첩장</title>-->
+  <title>김시용 ♥ 최다희 모바일 청첩장</title>
   <base href="/wedding-invite/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/lightSlider.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/calendar.css">
   <link rel="stylesheet" href="css/location.css">
+  <link rel="stylesheet" href="css/modal.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
@@ -353,16 +354,51 @@
            </div>
        </section>
 
+       <section class="account-section">
+           <div class="account-title sec-tit">
+               <img src="images/account.png" alt="account">
+           </div>
+           <div class="sec-txt">축하의 마음을 담아 축의금을 전달해보세요.</div>
+
+           <div class="ib">
+               <div class="row">
+                   <div class="slsb-tit">신랑측 마음</div>
+                   <div class="slsb-btn">
+                       <button class="com-btn acc sl" onclick="openAccountModal('신랑', [
+          { label: '아버지', bank: '농협', number: '123-4567-8901', owner: '김병빈' },
+          { label: '어머니', bank: '신한', number: '456-7890-1234', owner: '장미라' },
+          { label: '신랑', bank: '국민', number: '789-0123-4567', owner: '김시용' }
+        ])">계좌번호 보기</button>
+                   </div>
+               </div>
+
+               <div class="row">
+                   <div class="slsb-tit">신부측 마음</div>
+                   <div class="slsb-btn">
+                       <button class="com-btn acc sb" onclick="openAccountModal('신부', [
+          { label: '아버지', bank: '우리', number: '321-6547-8901', owner: '최종남' },
+          { label: '어머니', bank: '농협', number: '654-9870-3210', owner: '지미아' },
+          { label: '신부', bank: '카카오', number: '987-6543-2109', owner: '최다희' }
+        ])">계좌번호 보기</button>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+       <!-- 모달 -->
+       <div class="account-modal" id="accountModal">
+           <div class="modal-content">
+               <p class="modal-title" id="modalTitle"></p>
+               <div class="modal-account-list" id="modalAccountList"></div>
+               <button class="modal-close" onclick="closeAccountModal()">닫기</button>
+           </div>
+       </div>
+
+       <!-- 토스트 -->
+       <div id="toast" class="toast">복사되었습니다!</div>
 
 
-
-       <section class="account">
-      <h2>축의금 계좌</h2>
-      <p>신랑측: 국민은행 000-123-456789 (예금주: 김시용)</p>
-      <p>신부측: 농협 000-123-456789 (예금주: 최다희)</p>
-    </section>
-
-<!--    <section class="rsvp">-->
+       <!--    <section class="rsvp">-->
 <!--      <h2>참석 여부 전달</h2>-->
 <!--      <form>-->
 <!--        <input type="text" placeholder="성함" required>-->
@@ -378,6 +414,7 @@
 <!--      </form>-->
 <!--    </section>-->
   </div>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
@@ -419,7 +456,6 @@
            });
 
        });
-
    </script>
 </body>
 </html>
