@@ -12,12 +12,16 @@
   <link rel="stylesheet" href="css/location.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/snow.css">
+  <link rel="stylesheet" href="css/comment.css">
   <link href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 <body>
     <audio id="weddingMusic" autoplay muted loop>
@@ -379,6 +383,39 @@
            </div>
        </section>
 
+
+       <section class="guest-message-slider">
+           <h2 class="slider-title">📬 축하 메시지를 남겨주세요</h2>
+           <form id="messageForm" class="message-form">
+               <input type="text" id="authorInput" placeholder="이름" required />
+               <textarea id="messageInput" placeholder="축하 메시지를 입력하세요" required></textarea>
+               <input type="password" id="passwordInput" placeholder="비밀번호" required />
+               <button type="submit">메시지 남기기</button>
+           </form>
+           <div class="slider-wrapper">
+               <div class="message-slider-container swiper">
+                   <div id="messageWrapper" class="swiper-wrapper">
+                       <div class="swiper-slide message-card">
+                           <button class="delete-btn" aria-label="삭제">
+                               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c7a37b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <circle cx="12" cy="12" r="10" stroke="#c7a37b" fill="#f8f1e6"/>
+                                   <line x1="15" y1="9" x2="9" y2="15" />
+                                   <line x1="9" y1="9" x2="15" y2="15" />
+                               </svg>
+                           </button>
+                           <p class="msg-text">두 분의 앞날에 항상 따뜻한 햇살이 가득하길 바랍니다 😊</p>
+                           <p class="msg-author">- 김민영</p>
+                           <span class="msg-time">2025.06.05</span>
+                       </div>
+                   </div>
+                   <!-- 슬라이드 내비게이션 -->
+                   <div class="swiper-pagination"></div>
+               </div>
+           </div>
+       </section>
+
+
+
        <!-- 모달 -->
        <div class="account-modal" id="accountModal">
            <div class="modal-content">
@@ -391,22 +428,6 @@
        <!-- 토스트 -->
        <div id="toast" class="toast">복사되었습니다!</div>
 
-
-       <!--    <section class="rsvp">-->
-<!--      <h2>참석 여부 전달</h2>-->
-<!--      <form>-->
-<!--        <input type="text" placeholder="성함" required>-->
-<!--        <input type="text" placeholder="연락처" required>-->
-<!--        <input type="number" placeholder="동행 인원" required>-->
-<!--        <select required>-->
-<!--          <option value="">식사 여부 선택</option>-->
-<!--          <option>식사 가능</option>-->
-<!--          <option>식사 불가 (답례품 수령)</option>-->
-<!--        </select>-->
-<!--        <textarea placeholder="전달사항"></textarea>-->
-<!--        <button type="submit">참석 의사 전달</button>-->
-<!--      </form>-->
-<!--    </section>-->
   </div>
 
     <div id="introOverlay" class="intro-overlay">
@@ -425,10 +446,29 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Firebase App (core) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="js/main.js"></script>
-
-   <script>
+  <script>
        $(function() {
+
+           const firebaseConfig = {
+               apiKey: "AIzaSyA5omovIk1jO6pElM-M-a3IvoA_Ekc31kM",
+               authDomain: "siyong-wedding.firebaseapp.com",
+               projectId: "siyong-wedding",
+               storageBucket: "siyong-wedding.firebasestorage.app",
+               messagingSenderId: "208773929873",
+               appId: "1:208773929873:web:46d9f175d1685b382b9830",
+               measurementId: "G-TKHCSGMXXM"
+           };
+
+           // Initialize Firebase
+           firebase.initializeApp(firebaseConfig);
+           const db = firebase.firestore();
+
            drawSnowflakes();
 
            $("#calendar").datepicker({
@@ -474,6 +514,91 @@
                audio.muted = false;
                audio.play().catch(err => console.warn("음악 재생 실패:", err));
            });
+
+           // Swiper 슬라이더 초기화
+           const swiper = new Swiper('.swiper', {
+               loop: false,
+               spaceBetween: 24,
+               slidesPerView: 1,
+               pagination: {
+                   el: '.swiper-pagination',
+                   clickable: true
+               }
+           });
+
+
+           const messageWrapper = document.getElementById("messageWrapper");
+
+
+           document.getElementById("messageForm").addEventListener("submit", function(e) {
+               e.preventDefault(); // 폼 제출 시 새로고침 방지
+               const name = document.getElementById("authorInput").value.trim();
+               const msg = document.getElementById("messageInput").value.trim();
+               const pwd = document.getElementById("passwordInput").value.trim();
+               if (!name || !msg || !pwd) return;
+
+               // Firestore에 메시지 저장
+               db.collection("messages").add({
+                   author: name,
+                   message: msg,
+                   password: pwd,
+                   timestamp: firebase.firestore.FieldValue.serverTimestamp()
+               }).then(() => {
+                   alert("메시지가 등록되었습니다 😊");
+                   document.getElementById("messageForm").reset(); // 입력값 초기화
+                   loadMessages(); // 메시지만 다시 불러오기
+               });
+           });
+
+
+           // 메시지 목록을 로드하고 화면에 표시하는 함수
+           function loadMessages() {
+               messageWrapper.innerHTML = ""; // 기존 메시지 초기화
+               db.collection("messages").orderBy("timestamp", "desc").get().then((querySnapshot) => {
+                   querySnapshot.forEach((doc) => {
+                       const data = doc.data();
+                       const date = data.timestamp?.toDate();
+                       const timeStr = date ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}` : "";
+
+                       const newSlide = document.createElement("div");
+                       newSlide.className = "swiper-slide message-card";
+                       newSlide.innerHTML = `
+                        <button class="delete-btn" aria-label="삭제" data-id="${doc.id}">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c7a37b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" stroke="#c7a37b" fill="#f8f1e6"/>
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                          </svg>
+                        </button>
+                        <p class="msg-text">${data.message}</p>
+                        <p class="msg-author">- ${data.author}</p>
+                        <span class="msg-time">${timeStr}</span>
+                      `;
+                       messageWrapper.appendChild(newSlide);
+                   });
+                   swiper.update(); // 슬라이더 업데이트
+               });
+           }
+
+           document.addEventListener("click", function(e) {
+               if (e.target.closest(".delete-btn")) {
+                   const btn = e.target.closest(".delete-btn");
+                   const id = btn.getAttribute("data-id");
+                   const input = prompt("삭제하려면 비밀번호를 입력하세요");
+                   if (!input) return;
+                   db.collection("messages").doc(id).get().then(doc => {
+                       if (doc.exists && doc.data().password === input) {
+                           db.collection("messages").doc(id).delete().then(() => {
+                               alert("삭제되었습니다");
+                               loadMessages();
+                           });
+                       } else {
+                           alert("비밀번호가 일치하지 않습니다");
+                       }
+                   });
+               }
+           });
+           loadMessages();
        });
    </script>
 </body>
