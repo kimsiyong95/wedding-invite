@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
     <audio id="weddingMusic" autoplay muted loop>
@@ -446,160 +446,157 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <!-- Firebase App (core) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <!-- Firebase Firestore -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="js/main.js"></script>
-  <script>
-       $(function() {
+    <script>
+        $(function () {
+            const firebaseConfig = {
+                apiKey: "AIzaSyA5omovIk1jO6pElM-M-a3IvoA_Ekc31kM",
+                authDomain: "siyong-wedding.firebaseapp.com",
+                projectId: "siyong-wedding",
+                storageBucket: "siyong-wedding.firebasestorage.app",
+                messagingSenderId: "208773929873",
+                appId: "1:208773929873:web:46d9f175d1685b382b9830",
+                measurementId: "G-TKHCSGMXXM"
+            };
 
-           const firebaseConfig = {
-               apiKey: "AIzaSyA5omovIk1jO6pElM-M-a3IvoA_Ekc31kM",
-               authDomain: "siyong-wedding.firebaseapp.com",
-               projectId: "siyong-wedding",
-               storageBucket: "siyong-wedding.firebasestorage.app",
-               messagingSenderId: "208773929873",
-               appId: "1:208773929873:web:46d9f175d1685b382b9830",
-               measurementId: "G-TKHCSGMXXM"
-           };
+            // Firebase 초기화
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
 
-           // Initialize Firebase
-           firebase.initializeApp(firebaseConfig);
-           const db = firebase.firestore();
+            // 날짜 달력
+            $("#calendar").datepicker({
+                inline: true,
+                defaultDate: new Date(2026, 11, 12),
+                beforeShowDay: function (date) {
+                    const highlight = date.getDate() === 12 && date.getMonth() === 11 && date.getFullYear() === 2026;
+                    return [true, highlight ? "ui-state-active" : ""];
+                },
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
 
-           drawSnowflakes();
+            // 오디오 자동재생
+            const audio = document.getElementById("weddingMusic");
+            audio.play().catch(() => {});
+            document.addEventListener("click", function handler() {
+                audio.muted = false;
+                audio.play().catch(() => {});
+                document.removeEventListener("click", handler);
+            });
 
-           $("#calendar").datepicker({
-               inline: true,
-               defaultDate: new Date(2026, 11, 12), // 2026년 12월 12일
-               beforeShowDay: function(date) {
-                   var highlight = (date.getDate() === 12 && date.getMonth() === 11 && date.getFullYear() === 2026);
-                   return [true, highlight ? "ui-state-active" : ""];
-               },
-               showOtherMonths: true,
-               selectOtherMonths: true
-           });
+            document.getElementById("enterBtn").addEventListener("click", () => {
+                const overlay = document.getElementById("introOverlay");
+                overlay.style.opacity = "0";
+                setTimeout(() => overlay.style.display = "none", 1000);
+                audio.muted = false;
+                audio.play().catch(() => {});
+            });
 
+            // ✅ Swiper 슬라이더 초기화
+            const swiper = new Swiper('.message-slider-container', {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                centeredSlides: true,
+                centeredSlidesBounds: false,
+                loop: false,
+                on: {
+                    init: () => {
+                        setTimeout(() => swiper.slideTo(0, 0), 100);
+                    }
+                }
+            });
 
-           // 오디오 자동 재생 (muted 상태)
-           const audio = document.getElementById("weddingMusic");
-           audio.play().then(() => {
-               console.log("🎵 음소거 상태로 자동 재생 시작");
-           }).catch(err => {
-               console.warn("자동 재생 실패 (muted 상태)", err);
-           });
+            const messageWrapper = document.getElementById("messageWrapper");
 
-           // 사용자가 아무 곳이나 클릭 시 unmute + 재생
-           document.addEventListener("click", function handler() {
-               audio.muted = false;
-               audio.play().then(() => {
-                   console.log("🔊 사용자 클릭으로 소리 재생");
-               }).catch(err => {
-                   console.warn("소리 재생 실패", err);
-               });
+            // 메시지 등록
+            document.getElementById("messageForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("authorInput").value.trim();
+                const msg = document.getElementById("messageInput").value.trim();
+                const pwd = document.getElementById("passwordInput").value.trim();
+                if (!name || !msg || !pwd) return;
 
-               // 중복 방지
-               document.removeEventListener("click", handler);
-           });
+                db.collection("messages").add({
+                    author: name,
+                    message: msg,
+                    password: pwd,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }).then(() => {
+                    alert("메시지가 등록되었습니다 😊");
+                    document.getElementById("messageForm").reset();
+                    loadMessages();
+                });
+            });
 
-           document.getElementById("enterBtn").addEventListener("click", function () {
-               const overlay = document.getElementById("introOverlay");
-               overlay.style.opacity = "0";
-               setTimeout(() => overlay.style.display = "none", 1000);
+            // 메시지 불러오기
+            function loadMessages() {
+                const slides = [];
 
-               // 음악 unmute + 재생
-               const audio = document.getElementById("weddingMusic");
-               audio.muted = false;
-               audio.play().catch(err => console.warn("음악 재생 실패:", err));
-           });
+                db.collection("messages")
+                    .orderBy("timestamp", "desc")
+                    .get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
+                            const date = data.timestamp?.toDate();
+                            const timeStr = date
+                                ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`
+                                : "";
 
-           // Swiper 슬라이더 초기화
-           const swiper = new Swiper('.swiper', {
-               loop: false,
-               spaceBetween: 24,
-               slidesPerView: 1,
-               pagination: {
-                   el: '.swiper-pagination',
-                   clickable: true
-               }
-           });
+                            const html = `
+              <div class="swiper-slide message-card">
+                <button class="delete-btn" aria-label="삭제" data-id="${doc.id}">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c7a37b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" stroke="#c7a37b" fill="#f8f1e6"/>
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                  </svg>
+                </button>
+                <p class="msg-text">${data.message}</p>
+                <p class="msg-author">- ${data.author}</p>
+                <span class="msg-time">${timeStr}</span>
+              </div>
+            `;
+                            slides.push(html);
+                        });
 
+                        swiper.removeAllSlides();
+                        swiper.appendSlide(slides);
+                        swiper.update();
+                        swiper.setTranslate(0);  // 좌표 초기화
+                        swiper.slideTo(0, 0);     // 맨 처음 슬라이드로 이동
+                    });
+            }
 
-           const messageWrapper = document.getElementById("messageWrapper");
+            // 삭제 기능
+            document.addEventListener("click", function (e) {
+                const btn = e.target.closest(".delete-btn");
+                if (btn) {
+                    const id = btn.getAttribute("data-id");
+                    const input = prompt("삭제하려면 비밀번호를 입력하세요");
+                    if (!input) return;
 
+                    db.collection("messages").doc(id).get().then(doc => {
+                        if (doc.exists && doc.data().password === input) {
+                            db.collection("messages").doc(id).delete().then(() => {
+                                alert("삭제되었습니다");
+                                loadMessages();
+                            });
+                        } else {
+                            alert("비밀번호가 일치하지 않습니다");
+                        }
+                    });
+                }
+            });
 
-           document.getElementById("messageForm").addEventListener("submit", function(e) {
-               e.preventDefault(); // 폼 제출 시 새로고침 방지
-               const name = document.getElementById("authorInput").value.trim();
-               const msg = document.getElementById("messageInput").value.trim();
-               const pwd = document.getElementById("passwordInput").value.trim();
-               if (!name || !msg || !pwd) return;
+            loadMessages();
+        });
+    </script>
 
-               // Firestore에 메시지 저장
-               db.collection("messages").add({
-                   author: name,
-                   message: msg,
-                   password: pwd,
-                   timestamp: firebase.firestore.FieldValue.serverTimestamp()
-               }).then(() => {
-                   alert("메시지가 등록되었습니다 😊");
-                   document.getElementById("messageForm").reset(); // 입력값 초기화
-                   loadMessages(); // 메시지만 다시 불러오기
-               });
-           });
-
-
-           // 메시지 목록을 로드하고 화면에 표시하는 함수
-           function loadMessages() {
-               messageWrapper.innerHTML = ""; // 기존 메시지 초기화
-               db.collection("messages").orderBy("timestamp", "desc").get().then((querySnapshot) => {
-                   querySnapshot.forEach((doc) => {
-                       const data = doc.data();
-                       const date = data.timestamp?.toDate();
-                       const timeStr = date ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}` : "";
-
-                       const newSlide = document.createElement("div");
-                       newSlide.className = "swiper-slide message-card";
-                       newSlide.innerHTML = `
-                        <button class="delete-btn" aria-label="삭제" data-id="${doc.id}">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c7a37b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" stroke="#c7a37b" fill="#f8f1e6"/>
-                            <line x1="15" y1="9" x2="9" y2="15" />
-                            <line x1="9" y1="9" x2="15" y2="15" />
-                          </svg>
-                        </button>
-                        <p class="msg-text">${data.message}</p>
-                        <p class="msg-author">- ${data.author}</p>
-                        <span class="msg-time">${timeStr}</span>
-                      `;
-                       messageWrapper.appendChild(newSlide);
-                   });
-                   swiper.update(); // 슬라이더 업데이트
-               });
-           }
-
-           document.addEventListener("click", function(e) {
-               if (e.target.closest(".delete-btn")) {
-                   const btn = e.target.closest(".delete-btn");
-                   const id = btn.getAttribute("data-id");
-                   const input = prompt("삭제하려면 비밀번호를 입력하세요");
-                   if (!input) return;
-                   db.collection("messages").doc(id).get().then(doc => {
-                       if (doc.exists && doc.data().password === input) {
-                           db.collection("messages").doc(id).delete().then(() => {
-                               alert("삭제되었습니다");
-                               loadMessages();
-                           });
-                       } else {
-                           alert("비밀번호가 일치하지 않습니다");
-                       }
-                   });
-               }
-           });
-           loadMessages();
-       });
-   </script>
 </body>
 </html>
