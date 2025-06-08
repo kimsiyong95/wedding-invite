@@ -56,7 +56,7 @@
 
 /* 흐릿한 카드 */
 .swiper-slide {
-  opacity: 0.3;
+  opacity: 0.5;
   transform: scale(0.92);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
