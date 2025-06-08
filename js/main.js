@@ -120,3 +120,56 @@ function updateSnowflakes() {
 }
 
 
+function showPasswordPrompt(callback) {
+    const overlay = document.createElement("div");
+    overlay.className = "modal-overlay";
+
+    overlay.innerHTML = `
+<div class="password-modal">
+  <h3>비밀번호를 입력하세요</h3>
+  <input type="password" id="deletePasswordInput" placeholder="비밀번호 입력">
+  <div class="button-group">
+    <button class="confirm">확인</button>
+    <button class="cancel">취소</button>
+  </div>
+</div>
+  `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector(".confirm").addEventListener("click", () => {
+        const input = overlay.querySelector("#deletePasswordInput").value.trim();
+        document.body.removeChild(overlay);
+        callback(input);
+    });
+
+    overlay.querySelector(".cancel").addEventListener("click", () => {
+        document.body.removeChild(overlay);
+        callback(null); // 취소 시 null 반환
+    });
+}
+
+function showAlert(message) {
+    // 기존 알림 제거
+    const existing = document.querySelector(".custom-alert-overlay");
+    if (existing) existing.remove();
+
+    // 요소 생성
+    const overlay = document.createElement("div");
+    overlay.className = "custom-alert-overlay";
+
+    const box = document.createElement("div");
+    box.className = "custom-alert-box";
+
+    const msg = document.createElement("p");
+    msg.textContent = message;
+
+    const btn = document.createElement("button");
+    btn.textContent = "확인";
+    btn.onclick = () => overlay.remove();
+
+    box.appendChild(msg);
+    box.appendChild(btn);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+}
